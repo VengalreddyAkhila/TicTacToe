@@ -37,6 +37,7 @@ namespace TicTacToe
             Console.WriteLine("     |     |      ");
 
         }
+        
     }
     
 }

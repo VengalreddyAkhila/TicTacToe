@@ -6,19 +6,12 @@ namespace TicTacToe
    {
         static void Main(string[] args)
         {
-            char[] board = TicTacToeGame.createBoard();                 //calling an method by usung class name
+            char[] board = TicTacToeGame.createBoard();                 
             Console.WriteLine(board);
             char choose = TicTacToeGame.chooseUserChar();
             Console.WriteLine("Your choice is " + choose);            
             TicTacToeGame.ShowBoard(board);
-
-            Console.ReadKey();
-            /*TicTacToeGame TicTac = new TicTacToeGame();
-            TicTac.createBoard();
-            char choose = TicTacToeGame.ChooseUserLetter();
-            Console.WriteLine("Your choice is " + choose);
-            TicTac.ShowBoard(board);
-            Console.ReadLine();*/
+            
         }
    }
 }
