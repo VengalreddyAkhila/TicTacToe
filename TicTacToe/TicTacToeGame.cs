@@ -36,22 +36,42 @@ namespace TicTacToe
             Console.WriteLine("  7  |  8  |  9");
             Console.WriteLine("     |     |      ");
         }
-        public static int UserMove(char[] board)
+        //user make a move
+        
+        public static char[] UserMove(char[] board)
         {
-            int[] validCells = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            while (true)
+            Console.WriteLine("select the location on Board :  ");
+            int location = Convert.ToInt32(Console.ReadLine());
+
+            while (location > 9 || location < 1)
             {
-                Console.WriteLine("What is Your next move(1-9)???");
-                int index = Convert.ToInt32(Console.ReadLine());
-                if (Array.Find<int>(validCells, elements => elements == index) != 0 && isFreeSpace(board, index))
-                 return index;
+                Console.WriteLine("invalid location, select the location on Board :  ");                          
+                if (location  == 0)
+                {
+                    Console.WriteLine("location already selected");
+                    Console.WriteLine("select another location on Board :  ");
+                    location = Convert.ToInt32(Console.ReadLine());
+                }
+                else
+                {
+                    board[location] = 'x';
+                }
             }
-        }
-        public static bool isFreeSpace(char[] board, int index)
-        {
-            return board[index] == ' ';
+            return board;
         }
 
+        private static int checkBoard(int location, char[] board)
+        {
+            if (board[location] != ' ')
+            {
+                return 0;
+            }
+            else
+            {
+                return location;
+            }
+        }
     }
+    
     
 }
