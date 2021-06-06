@@ -11,6 +11,11 @@ namespace TicTacToe
         /// </summary>
         /// <returns></returns>
         ///intializing the board  with empty space
+
+
+        public const int HEAD = 0;
+        public const int TAIL = 1;
+        public enum Player { USER, COMPUTER };
         public static char[] createBoard()
         {
             char[] board = new char[10];
@@ -66,6 +71,17 @@ namespace TicTacToe
             bool spaceFree = isFreeSpace(board, index);
             if (spaceFree) board[index] = letter;
         }
+        public static Player getWhoStartFirst()
+        {
+            int toss = getOneFromRandomChoice(2);
+            return (toss == HEAD) ? Player.USER : Player.COMPUTER;
+        }
+        public static int getOneFromRandomChoice(int choices)
+        {
+            Random objRandom = new Random();
+            return (int)(objRandom.Next() * 10) % choices;
+        }
+
 
     }
 }

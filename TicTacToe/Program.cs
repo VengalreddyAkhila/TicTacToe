@@ -13,6 +13,7 @@ namespace TicTacToe
             TicTacToeGame.ShowBoard(board);
             int userMove = TicTacToeGame.GetUserMove(board);            
             TicTacToeGame.makeMove(board, userMove, choose);
+            TicTacToeGame.getWhoStartFirst();
         }
    }
 }
