@@ -43,21 +43,30 @@ namespace TicTacToe
         }
         //user makeing a move in gameboard
 
-          static int GetUserMove(char[] board)
-          {
+        public static int GetUserMove(char[] board)
+        {
             int[] validCells = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             while (true)
             {
                 Console.WriteLine("What is Your next move? (1-9):-");
                 int index = Convert.ToInt32(Console.ReadLine());
-                if (Array.Find<int>(validCells, elements => elements == index) != 0 && isSpaceFree(board, index))
+                if (Array.Find<int>(validCells, elements => elements == index) != 0 && isFreeSpace(board, index))
                     return index;
             }
-          }
-        static bool isSpaceFree(char[] board, int index)
+
+        }
+        static bool isFreeSpace(char[] board, int index)
         {
             return board[index] == ' ';
         }
+
+       //user moving to freespace
+        public static void makeMove(char[] board, int index, char letter)
+        {
+            bool spaceFree = isFreeSpace(board, index);
+            if (spaceFree) board[index] = letter;
+        }
+
     }
 }
         

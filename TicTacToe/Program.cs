@@ -10,8 +10,9 @@ namespace TicTacToe
             Console.WriteLine(board);
             char choose = TicTacToeGame.chooseUserChar();
             Console.WriteLine("Your choice is " + choose);
-            int userMove = TicTacToeGame.GetUserMove(board);
-
+            TicTacToeGame.ShowBoard(board);
+            int userMove = TicTacToeGame.GetUserMove(board);            
+            TicTacToeGame.makeMove(board, userMove, choose);
         }
    }
 }
