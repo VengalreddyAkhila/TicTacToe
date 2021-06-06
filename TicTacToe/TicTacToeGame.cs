@@ -10,7 +10,7 @@ namespace TicTacToe
         /// TicTacToe game plays in a gameboard 
         /// </summary>
         /// <returns></returns>
-        //intializing the board  with empty space
+        ///intializing the board  with empty space
         public static char[] createBoard()
         {
             char[] board = new char[10];
@@ -20,6 +20,7 @@ namespace TicTacToe
             }
             return board;
         }
+
         //user choosing the option 
         public static char chooseUserChar()
         {
@@ -42,42 +43,29 @@ namespace TicTacToe
         }
         //user makeing a move in gameboard
 
-        public static char[] UserMove(char[] board)
+          static int GetUserMove(char[] board)
+          {
+            int[] validCells = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            while (true)
+            {
+                Console.WriteLine("What is Your next move? (1-9):-");
+                int index = Convert.ToInt32(Console.ReadLine());
+                if (Array.Find<int>(validCells, elements => elements == index) != 0 && isSpaceFree(board, index))
+                    return index;
+            }
+          }
+        static bool isSpaceFree(char[] board, int index)
         {
-            Console.WriteLine("select the location on Board :  ");
-            int location = Convert.ToInt32(Console.ReadLine());            
-            while (location > 9 || location < 1)
-            {
-                Console.WriteLine("invalid location, select the location on Board :  ");                
-            }
-            location = CheckBoard(location, board);
-            if (location == 0)
-            { 
-                Console.WriteLine("location already selected");
-                Console.WriteLine("select another location on Board :  ");
-                
-            }
-            else
-            {
-                board[location] = 'x';
-            }
-            return board;
-        }       
-
-        private static int CheckBoard(int location, char[] board)
-            {
-                if (board[location] != ' ')
-                {
-                    return 0;
-                }
-                else
-                {
-                    return location;
-                }
-            }
-        
+            return board[index] == ' ';
+        }
     }
 }
+        
+       
+
+        
+   
+
     
     
     
