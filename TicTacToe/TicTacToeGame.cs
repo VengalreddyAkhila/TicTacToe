@@ -48,15 +48,14 @@ namespace TicTacToe
             int location = Convert.ToInt32(Console.ReadLine());            
             while (location > 9 || location < 1)
             {
-                Console.WriteLine("invalid location, select the location on Board :  ");
-                location = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("invalid location, select the location on Board :  ");                
             }
             location = CheckBoard(location, board);
             if (location == 0)
-            {
+            { 
                 Console.WriteLine("location already selected");
                 Console.WriteLine("select another location on Board :  ");
-                location = Convert.ToInt32(Console.ReadLine());
+                
             }
             else
             {
